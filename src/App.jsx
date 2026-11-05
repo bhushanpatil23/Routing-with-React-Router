@@ -11,6 +11,7 @@ import Users from './layouts/dashboard/Users';
 import Products from './layouts/dashboard/Products';
 import DashboardHome from './layouts/dashboard/DashboardHome';
 import Home from './layouts/Home';
+import ProductDetails from './layouts/dashboard/product_details';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -27,6 +28,7 @@ function App() {
           <Route index element={<DashboardHome/>}/>
           <Route path="users" element={<Users/>}/>
           <Route path="products" element={<Products/>}/>
+          <Route path="products/:id" element={<ProductDetails/>}/>
         </Route>
 
         <Route path="*" element={<p>Not Found - 404</p>}/>

@@ -1,53 +1,31 @@
 import React from 'react'
-import { Outlet,Link , NavLink} from 'react-router'
+import { Outlet, NavLink } from 'react-router'
 
-const dashboard = () => {
+const Dashboard = () => {
   return (
-    <div>
-        <h1>Dashboard</h1>
-        <p>Dashboard is a page that contains information about the application and its features.</p>
-
-        <nav>
-            <p>All the links:</p>
-            <ul>
-                <li>
-                    <NavLink 
-                        to={"users"} 
-                        replace
-                        className={({ isActive }) => 
-                          `text-blue-500 hover:underline ${
-                            isActive && 
-                            "bg-blue-500 text-white"
-                          }`
-                        }
-                        >
-                          Users
-                    </NavLink>
-                </li>
-                <li>
-                    <NavLink 
-                        to="products" 
-                        replace
-                        className={({ isActive }) => 
-                          `text-blue-500 hover:underline ${
-                            isActive && 
-                            "bg-blue-500 text-white"
-                          }`
-                        }
-                        >
-                          Products
-                    </NavLink>
-                </li>
-            </ul>
-        </nav>
-
-        <p>These are children below:</p>
-
-        <Outlet />
-
-        <p>footer from Dashboard</p>
+    <div className="dashboard">
+      <h1 className="dashboard__title">Dashboard</h1>
+      <nav className="dashboard__nav" aria-label="Dashboard pages">
+        <NavLink
+          to="products"
+          className={({ isActive }) =>
+            `dashboard__link${isActive ? ' dashboard__link--active' : ''}`
+          }
+        >
+          Products
+        </NavLink>
+        <NavLink
+          to="users"
+          className={({ isActive }) =>
+            `dashboard__link${isActive ? ' dashboard__link--active' : ''}`
+          }
+        >
+          Users
+        </NavLink>
+      </nav>
+      <Outlet />
     </div>
   )
 }
 
-export default dashboard
+export default Dashboard
