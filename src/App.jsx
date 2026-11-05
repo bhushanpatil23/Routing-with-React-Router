@@ -9,6 +9,8 @@ import About from './layouts/about';
 import Dashboard from './layouts/dashboard/dashboard';
 import Users from './layouts/dashboard/Users';
 import Products from './layouts/dashboard/Products';
+import DashboardHome from './layouts/dashboard/DashboardHome';
+import Home from './layouts/Home';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -17,11 +19,12 @@ function App() {
     
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<p>Home Paragraph</p>}/>
-        <Route path="/about" element={<p>About Paragraph</p>}/>
+        <Route path="/" element={<Home/>}/>
+        <Route path="/about" element={<About/>}/>
         <Route path="/login" element={<Login/>}/>
 
         <Route path="/dashboard" element={<Dashboard/>}>
+          <Route index element={<DashboardHome/>}/>
           <Route path="users" element={<Users/>}/>
           <Route path="products" element={<Products/>}/>
         </Route>
